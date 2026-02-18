@@ -1,0 +1,102 @@
+package differencearrays;
+
+import java.util.ArrayList;
+
+public class DifferenceArraysArrayLists
+{
+   public static void main(String[] args)
+   {
+      // ------------------------------------------------------------
+      // 1) ARRAY EXAMPLE (fixed size)
+      // ------------------------------------------------------------
+      int[] scores = new int[3]; // length is fixed at 3
+      scores[0] = 90;
+      scores[1] = 85;
+      scores[2] = 100;
+
+      System.out.println("ARRAY EXAMPLE (fixed size)");
+      System.out.println("Array length: " + scores.length);
+
+      // Print array elements using a loop
+      System.out.print("Array contents: ");
+      for (int i = 0; i < scores.length; i++)
+      {
+         System.out.print(scores[i] + " ");
+      }
+      System.out.println();
+      System.out.println();
+
+      // Arrays cannot grow. To "add" another element, you must
+      // create a new array and copy the old values.
+      int[] biggerScores = new int[scores.length + 1];
+      for (int i = 0; i < scores.length; i++)
+      {
+         biggerScores[i] = scores[i];
+      }
+      biggerScores[biggerScores.length - 1] = 70; // add new value at the end
+
+      System.out.println("Resized array by creating a new array and copying:");
+      System.out.print("Bigger array contents: ");
+      for (int i = 0; i < biggerScores.length; i++)
+      {
+         System.out.print(biggerScores[i] + " ");
+      }
+      System.out.println();
+      System.out.println();
+
+      // ------------------------------------------------------------
+      // 2) ARRAYLIST EXAMPLE (dynamic size)
+      // ------------------------------------------------------------
+      // ArrayList stores objects, so for integers we use Integer.
+      ArrayList<Integer> scoreList = new ArrayList<Integer>();
+
+      scoreList.add(90);
+      scoreList.add(85);
+      scoreList.add(100);
+
+      System.out.println("ARRAYLIST EXAMPLE (dynamic size)");
+      System.out.println("ArrayList size: " + scoreList.size());
+
+      // Print ArrayList elements using a loop
+      System.out.print("ArrayList contents: ");
+      for (int i = 0; i < scoreList.size(); i++)
+      {
+         System.out.print(scoreList.get(i) + " ");
+      }
+      System.out.println();
+
+      // ArrayList can grow without creating a new list
+      scoreList.add(70);
+      System.out.println("After add(70), ArrayList size: " + scoreList.size());
+
+      System.out.print("Updated ArrayList contents: ");
+      for (int i = 0; i < scoreList.size(); i++)
+      {
+         System.out.print(scoreList.get(i) + " ");
+      }
+      System.out.println();
+      System.out.println();
+
+      // Remove an element (dynamic shrinking)
+      // Remove the element at index 1 (the second element)
+      scoreList.remove(1);
+
+      System.out.println("After remove(1), ArrayList size: " + scoreList.size());
+      System.out.print("ArrayList contents: ");
+      for (int i = 0; i < scoreList.size(); i++)
+      {
+         System.out.print(scoreList.get(i) + " ");
+      }
+      System.out.println();
+      System.out.println();
+
+      // ------------------------------------------------------------
+      // 3) KEY DIFFERENCE SUMMARY IN OUTPUT
+      // ------------------------------------------------------------
+      System.out.println("SUMMARY");
+      System.out.println("- Arrays have a fixed length: scores.length = " + scores.length);
+      System.out.println("- ArrayLists change size: scoreList.size() = " + scoreList.size());
+      System.out.println("- Arrays can store primitives like int.");
+      System.out.println("- ArrayLists store objects like Integer.");
+   }
+}
